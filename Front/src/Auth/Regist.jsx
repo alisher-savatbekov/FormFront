@@ -3,6 +3,7 @@ import * as formik from 'formik';
 import * as yup from 'yup';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import "./auth.css"
 
 function Regist(){
     const {Formik}=formik;
@@ -17,7 +18,7 @@ function Regist(){
       });
     return(
 
-        <div>
+        <div className='form-auth'>
             <Formik
                     validationSchema={schema}
                     onSubmit={(values)=>{
@@ -37,10 +38,12 @@ function Regist(){
                 {
                     ({handleSubmit,handleChange,errors,values,touched})=>
                     (
-                        <Form onSubmit={handleSubmit}
-                        validateOnChange={true} // Отключает валидацию при каждом изменении
-                        validateOnBlur={false}    // Валидация произойдет при потере фокуса
+                        
+                        <Form className="form-submit" onSubmit={handleSubmit}
+                        validateOnChange={true}
+                        validateOnBlur={false}    
                         noValidate>
+                            <h2>Sign Up</h2>
                             <FloatingLabel controlId='floatingUsername' label="UserName" className='mb-3' >
                                 <Form.Control type="text" name="username" 
                                 value={values.username}
@@ -50,7 +53,7 @@ function Regist(){
                                     !!errors.username && touched.username
                                 }
                                 />
-                                <Form.Control.Feedback type='invalid'>
+                                <Form.Control.Feedback type='invalid' tooltip>
                                     {errors.username}
                                 </Form.Control.Feedback>
                             </FloatingLabel>
@@ -64,7 +67,7 @@ function Regist(){
                                  value={values.email}
                                  isInvalid={!!errors.email && touched.username}
                                 />
-                                <Form.Control.Feedback type='invalid'>
+                                <Form.Control.Feedback type='invalid' tooltip>
                                     {errors.email}
                                 </Form.Control.Feedback>
                             </FloatingLabel>
@@ -78,7 +81,7 @@ function Regist(){
                                 value={values.password}
                                 isInvalid={!!errors.password && touched.password}
                                 />
-                                <Form.Control.Feedback type='invalid'>
+                                <Form.Control.Feedback type='invalid' tooltip>
                                     {errors.password}
                                 </Form.Control.Feedback>
                             </FloatingLabel>
@@ -92,11 +95,11 @@ function Regist(){
                                 value={values.confirmPassword}
                                 isInvalid={!!errors.confirmPassword && touched.confirmPassword}
                                 />
-                                <Form.Control.Feedback type='invalid'>
+                                <Form.Control.Feedback type='invalid' tooltip>
                                     {errors.confirmPassword}
                                 </Form.Control.Feedback>
                             </FloatingLabel>
-                            <Button type="submit">Submit</Button>
+                            <Button type="submit" className='submit-button '>Submit</Button>
                         </Form>
                     )
                 }       

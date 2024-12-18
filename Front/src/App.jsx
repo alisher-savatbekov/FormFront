@@ -4,7 +4,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className='w-100 h-100'>
       <Regist/>
     </div>
   )
