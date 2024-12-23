@@ -47,8 +47,8 @@ function Regist(){
                             <FloatingLabel controlId='floatingUsername' label="UserName" className='mb-3' >
                                 <Form.Control type="text" name="username" 
                                 value={values.username}
-                                placeholder='UerName'
-                                onChange={handleChange} 
+                                placeholder='UserName'
+                                onChange={handleChange}
                                 isInvalid={
                                     !!errors.username && touched.username
                                 }
@@ -65,7 +65,7 @@ function Regist(){
                                  onChange={handleChange}
                                  name="email"
                                  value={values.email}
-                                 isInvalid={!!errors.email && touched.username}
+                                 isInvalid={!!errors.email && touched.email}
                                 />
                                 <Form.Control.Feedback type='invalid' tooltip>
                                     {errors.email}
